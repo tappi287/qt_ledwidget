@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2018 tappi287
+Copyright (c) 2018 Stefan Tapper
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Images contained in led_widget_res_rc.py are based on:
+https://pixabay.com/de/kugel-globus-gl%C3%A4nzend-gl%C3%BChen-rot-150545/
+as Public Domain under Creative Commons CC0. https://creativecommons.org/publicdomain/zero/1.0/

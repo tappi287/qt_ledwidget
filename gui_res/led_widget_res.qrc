@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="main">
+    <file>LED_Green_Off.png</file>
+    <file>LED_Green_On.png</file>
+    <file>LED_Red_Off.png</file>
+    <file>LED_Red_On.png</file>
+    <file>LED_Yellow_Off.png</file>
+    <file>LED_Yellow_On.png</file>
+  </qresource>
+  <qresource prefix="ui">
+    <file>LED_widget.ui</file>
+  </qresource>
+</RCC>
