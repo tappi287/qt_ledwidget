@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='qt-ledwidget',
-      version='0.1',
+      version='0.2',
       packages=['qt_ledwidget'],
       install_requires=[
           'PyQt5',
