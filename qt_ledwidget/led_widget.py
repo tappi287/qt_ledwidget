@@ -1,4 +1,5 @@
 import os
+from tempfile import NamedTemporaryFile as Ntf
 from . import led_widget_res_rc
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.uic import loadUi
@@ -6,24 +7,14 @@ from PyQt5.uic import loadUi
 
 def setup_resources():
     global UI_FILE_LED, RED_IMG, GREEN_IMG, YELLOW_IMG
-    # APPDATA should always be set, but in case it isn't, try user home
-    # If none of APPDATA, HOME, USERPROFILE or HOMEPATH are set, this will fail.
-    appdata = os.environ.get('APPDATA', None) or os.path.expanduser('~')
-    ui_temp_file = os.path.join(appdata, 'LED_widget.ui')
 
-    # Get UI file from qt resource
-    ui_file = QtCore.QFile(':/ui/LED_widget.ui')
+    # Get UI file content from qt resource
+    ui_rsc = QtCore.QFile(':/ui/LED_widget.ui')
+    ui_rsc.open(QtCore.QFile.ReadOnly)
+    UI_FILE_LED = ui_rsc.readAll()
+    ui_rsc.close()
+    del ui_rsc
 
-    # Write temporary UI file
-    with open(ui_temp_file, 'wb') as f:
-        try:
-            ui_file.open(QtCore.QFile.ReadOnly)
-            f.write(ui_file.readAll())
-        finally:
-            ui_file.close()
-
-    # Setup paths to resources
-    UI_FILE_LED = ui_temp_file
     RED_IMG = ':/main/LED_Red_On.png'
     YELLOW_IMG = ':/main/LED_Yellow_On.png'
     GREEN_IMG = ':/main/LED_Green_On.png'
@@ -53,12 +44,16 @@ class LedWidget(QtWidgets.QWidget):
 
         self.parent = parent
 
-        loadUi(UI_FILE_LED, self)
+        with Ntf(mode='wb', delete=False) as ui_temp_file:
+            # Write ui file content to temporary file
+            ui_temp_file.write(UI_FILE_LED)
 
-        # Remove temporary UI file
+        # loadUi only accepts a file path
+        loadUi(ui_temp_file.name, self)
+
         try:
-            os.remove(UI_FILE_LED)
-        except Exception as e:
+            os.remove(ui_temp_file.name)
+        except OSError as e:
             print(e)
 
         # 0 - RED : 1 - YELLOW : 2 - GREEN
