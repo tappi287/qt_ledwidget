@@ -7,7 +7,7 @@ setup(name='qt-ledwidget',
           'PyQt5',
       ],
       include_package_data=True,
-      url='', license='MIT',
+      url='https://github.com/tappi287/qt_ledwidget', license='MIT',
       author='Stefan Tapper',
       author_email='tapper.stefan@gmail.com',
       description='PyQt5 widget with animated LEDs')
