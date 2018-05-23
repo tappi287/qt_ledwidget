@@ -11,3 +11,11 @@ setup(name='qt-ledwidget',
       author='Stefan Tapper',
       author_email='tapper.stefan@gmail.com',
       description='PyQt5 widget with animated LEDs')
+
+"""
+Build PyPi package:
+python setup.py sdist bdist_wheel
+
+Upload to TestPyPi
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+"""

@@ -7,7 +7,7 @@
 # Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
-import qt_ledwidget.led_widget as led
+from qt_ledwidget import LedWidget
 from PyQt5 import QtCore, QtWidgets
 
 
@@ -44,7 +44,7 @@ class Ui_LedPanel(object):
                     timer   -   (int) Number of milliseconds after which the blink should start
                     forward -   (bool) Blink all LED from idx 0 to 2 or 2 to 0 with a 100ms offset
         """
-        self.led_ovr = led.LedWidget(LedPanel, self.gridLayout)
+        self.led_ovr = LedWidget(LedPanel, self.gridLayout)
 
         # Let em blink
         self.timer = Timer().timer_one
