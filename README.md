@@ -5,11 +5,12 @@
 [![License: MIT](https://img.shields.io/dub/l/vibe-d.svg)](https://opensource.org/licenses/MIT)
 
 Widget that displays 3 LED's with animated on, off blink methods.
+
 ![screenshot](/gui_res/screenshot.PNG?raw=true "Screenshot")
 
 ## Usage
 
-Here is an usage example. For a complete example see /qt_ledwidget/example_app.py
+Here is an usage example. For a complete example see ![/qt_ledwidget/example_app.py](https://github.com/tappi287/qt_ledwidget/blob/master/qt_ledwidget/example_app.py)
 
 ```Python
 from qt_ledwidget import LedWidget
