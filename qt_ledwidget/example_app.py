@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
-
+"""
+    Basic Qt Example application to demonstrate the usage of the LED widget
+"""
 # Form implementation generated from reading ui file 'gui_res/LED_widget.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
-import qt_ledwidget.led_widget
-from PyQt5 import QtCore, QtGui, QtWidgets
+import qt_ledwidget.led_widget as led
+from PyQt5 import QtCore, QtWidgets
 
 
 class Timer(QtCore.QObject):
@@ -26,7 +28,23 @@ class Ui_LedPanel(object):
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
 
-        self.led_ovr = qt_ledwidget.led_widget.LedWidget(LedPanel, self.gridLayout)
+        """
+            Add the LedWidget as self.led_ovr instance
+            Provide a parent QWidget and a QLayout to add the widget to
+            
+            The widget contains 4 methods to animate the LED's
+                led_on          [idx] Toggles the LED on with 100ms animation duration
+                led_off         [idx] Toggles the LED off with 400ms animation duration
+                led_blink       [idx, count, timer] Will blink n-times and toggle LED off
+                led_blink_all   [forward] Will blink all LED with 100ms offset and toggle all off
+                
+                Parameter description:
+                    idx     -   (int) Index of the LED to animate: 0 - Red, 1 - Yellow, 2 - Green
+                    count   -   (int) Number of times the LED should blink(loop count)
+                    timer   -   (int) Number of milliseconds after which the blink should start
+                    forward -   (bool) Blink all LED from idx 0 to 2 or 2 to 0 with a 100ms offset
+        """
+        self.led_ovr = led.LedWidget(LedPanel, self.gridLayout)
 
         # Let em blink
         self.timer = Timer().timer_one
