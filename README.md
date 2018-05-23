@@ -1,7 +1,7 @@
 # qt_ledwidget
 **Python PyQt5 widget to display animated LEDs**
 
-[![Latest PyPI version](https://img.shields.io/badge/pypi-v0.1-green.svg)](https://pypi.org/project/qt-ledwidget/)
+[![Latest PyPI version](https://img.shields.io/badge/pypi-v0.2-green.svg)](https://pypi.org/project/qt-ledwidget/)
 [![License: MIT](https://img.shields.io/dub/l/vibe-d.svg)](https://opensource.org/licenses/MIT)
 
 Widget that displays 3 LED's with animated on, off, blink and blink all methods.
